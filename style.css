@@ -1,0 +1,260 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #f1f1f1;
+  overflow-x: hidden;
+}
+
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 3px solid #00ff9d;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  color: #00ff9d;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ffaa;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+
+.slide {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.slide h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #00ff9d;
+  text-align: center;
+  text-shadow: 0 0 10px #00ff9d;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+  transition: transform 0.5s ease;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+.texto {
+  flex: 1;
+  min-width: 280px;
+}
+
+blockquote {
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #ffdf6b;
+  border-left: 5px solid #00ff9d;
+  padding-left: 1rem;
+  transition: text-shadow 0.4s ease;
+}
+
+blockquote:hover {
+  text-shadow: 0 0 10px #ffdf6b, 0 0 20px #00ff9d;
+}
+
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+
+.carta .bilhete {
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 255, 157, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 15px rgba(0,255,157,0.7);
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: inset 0 0 15px rgba(0,255,157,0.3); }
+  to { box-shadow: inset 0 0 25px rgba(0,255,157,0.9); }
+}
+
+
+.final .reflexao {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffdf6b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0,0,0,0.7);
+  border-top: 3px solid #00ff9d;
+  margin-top: 2rem;
+}
+
+footer p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  .slide h2 {
+    font-size: 1.6rem;
+  }
+
+  blockquote {
+    font-size: 1.1rem;
+  }
+
+  .imagem {
+    max-width: 100%;
+  }
+
+  .glass {
+    padding: 1.2rem;
+  }
+}
+
+
+.slide {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+blockquote.pulse {
+  text-shadow: 0 0 10px #ffdf6b, 0 0 20px #00ff9d;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #00ff9d;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 15s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); opacity: 0.6; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.3em;
+  color: #fff;
+  text-decoration: line-through; 
+  animation: flicker 2s infinite;
+}
+
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 blue;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 red;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+
+@keyframes glitch-anim {
+  0% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.3deg); }
+  20% { clip: rect(50px, 9999px, 90px, 0); transform: skew(0.6deg); }
+  40% { clip: rect(20px, 9999px, 60px, 0); transform: skew(0.2deg); }
+  60% { clip: rect(70px, 9999px, 100px, 0); transform: skew(0.5deg); }
+  80% { clip: rect(30px, 9999px, 80px, 0); transform: skew(0.7deg); }
+  100% { clip: rect(10px, 9999px, 40px, 0); transform: skew(0.4deg); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(60px, 9999px, 100px, 0); transform: skew(0.4deg); }
+  20% { clip: rect(20px, 9999px, 60px, 0); transform: skew(0.7deg); }
+  40% { clip: rect(40px, 9999px, 80px, 0); transform: skew(0.3deg); }
+  60% { clip: rect(10px, 9999px, 50px, 0); transform: skew(0.5deg); }
+  80% { clip: rect(70px, 9999px, 110px, 0); transform: skew(0.6deg); }
+  100% { clip: rect(30px, 9999px, 70px, 0); transform: skew(0.2deg); }
+}
+
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0; }
+}
